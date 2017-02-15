@@ -1,0 +1,23 @@
+# 安装说明
+#>安装依赖
+yum -y install python python-devel python-setuptools
+easy_install --upgrade pip
+pip install -r requirements.txt --trusted-host pypi.douban.com
+
+
+# 配置说明
+#>主要配置(default.ini)
+  [agent]
+  host=<agent-ip>
+  bugreport=<is-report>
+  alerthost=<alert-ip>
+  alertport=<alert-port>
+  pidfile=<agent-pid>
+  说明: Agent会将插件执行结果上报到Alert Server对应接口
+  注意: 配置文件中bugreport字段非0时会自动发送插件自身异常信息
+
+#>日志配置(logging.ini)
+
+# 运行说明
+cd <pwd>/xmzoomeye-agent
+./restart_service.sh
